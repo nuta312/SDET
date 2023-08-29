@@ -1,12 +1,15 @@
 package com.digitalnomads.apiTests.users;
 
+import com.digitalnomads.api.asserts.ApiAssert;
 import com.digitalnomads.api.entities.User;
+import com.digitalnomads.api.utils.EntityManager;
 import com.digitalnomads.apiTests.BaseApiTest;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 public class UserGetTest extends BaseApiTest {
     @Test
@@ -27,8 +30,16 @@ public class UserGetTest extends BaseApiTest {
 
     @Test
     public void isUserOnline() {
-        System.out.println(userController.isUserOnline("1"));
+        userController.isUserOnline("1");
+        ApiAssert.assertThat(userController.getResponse())
+                .isCorrectStatusCode(200);
     }
 
+    @Test
+    public void createUser() {
+        User user = EntityManager.generateUser();
+        User createdUser = userController.createUser(user);
+        assertNotNull(createdUser.getId());
+    }
 
 }

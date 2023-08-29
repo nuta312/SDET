@@ -16,11 +16,5 @@ public class JacksonUtils {
         }
     }
 
-    public static void main(String[] args) {
-        User user = EntityManager.generateUser();
-        System.out.println(user);
-        String s = JacksonUtils.fromObjectToJson(user);
-        System.out.println(s);
-    }
 
 }

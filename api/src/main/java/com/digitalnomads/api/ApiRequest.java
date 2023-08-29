@@ -7,6 +7,7 @@ import io.restassured.authentication.BasicAuthScheme;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 
 @Slf4j
+@Data
 public abstract class ApiRequest {
     protected String url;
     protected String apiKey;
