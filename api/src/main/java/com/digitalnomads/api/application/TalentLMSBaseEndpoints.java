@@ -7,5 +7,6 @@ public class TalentLMSBaseEndpoints {
     public static final String V1 = "v1";
     public static final String USERS = "users";
     public static final String EMAIL = "email";
+    public static final String ONLINE = "isuseronline";
 
 }

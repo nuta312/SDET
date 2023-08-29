@@ -19,4 +19,9 @@ public class UserController extends ApiRequest {
                 , generateParams(EMAIL, email));
     }
 
+    public boolean isUserOnline(String id) {
+        return super.getWithParams(getEndpoint(API, V1, ONLINE), generateParams("user_id", id)).jsonPath().getBoolean("online");
+    }
+
+
 }

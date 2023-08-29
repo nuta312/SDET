@@ -24,4 +24,11 @@ public class UserGetTest extends BaseApiTest {
         User[] user = userController.getAllUsers().as(User[].class);
         System.out.println(Arrays.toString(user));
     }
+
+    @Test
+    public void isUserOnline() {
+        System.out.println(userController.isUserOnline("1"));
+    }
+
+
 }

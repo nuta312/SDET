@@ -67,11 +67,17 @@ public abstract class ApiRequest {
         log.info("Performed GET {}", endPoint);
         this.response = RestAssured.given()
                 .spec(reqSpec)
-                .params(params)
+                .formParams(params)
                 .get(endPoint);
         logResponse();
         return this.response;
     }
+
+//    public Response get1(String endpoint) {
+//        RestAssured.given()
+//                .spec(reqSpec)
+//                .formParams()
+//    }
 
     public Response post(String endPoint, String body) {
         log.info("Performed POST {}", endPoint);
