@@ -26,4 +26,7 @@ public class ApiAssert {
         return this;
     }
 
+    public UserAssert assertUser() {
+        return UserAssert.assertThat(this.response);
+    }
 }

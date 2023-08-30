@@ -37,9 +37,13 @@ public class UserGetTest extends BaseApiTest {
 
     @Test
     public void createUser() {
-        User user = EntityManager.generateUser();
-        User createdUser = userController.createUser(user);
-        assertNotNull(createdUser.getId());
+        User expectedUser = EntityManager.generateUser();
+        userController.createUser(expectedUser);
+        ApiAssert.assertThat(userController.getResponse())
+                .isCorrectStatusCode(200)
+                .assertUser()
+                .isEquals(expectedUser)
+                .isIdNotNull();
     }
 
 }
